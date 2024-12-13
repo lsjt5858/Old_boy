@@ -70,6 +70,7 @@ str3 = "hello"
 print(str1 == str2)  # 输出：False （区分大小写）
 print(str1 == str3)  # 输出：True
 
+
 #### 三、逻辑运算符
 # and：与（两个操作数都为 True 时结果才为 True）
 # or：或（两个操作数中至少有一个为 True 时结果就为 True）
