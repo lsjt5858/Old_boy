@@ -70,7 +70,6 @@ str3 = "hello"
 print(str1 == str2)  # 输出：False （区分大小写）
 print(str1 == str3)  # 输出：True
 
-
 #### 三、逻辑运算符
 # and：与（两个操作数都为 True 时结果才为 True）
 # or：或（两个操作数中至少有一个为 True 时结果就为 True）
@@ -86,6 +85,7 @@ b = False
 print(a and b)  # 输出：False
 print(a or b)  # 输出：True
 print(not a)  # 输出：False
+
 
 # 短路特性示例
 def test():
@@ -123,7 +123,6 @@ print(5 not in a)  # 输出：True
 #### 五、三目运算符（条件表达式）
 # **语法：** `true_expr if condition else false_expr`
 # **示例：**
-
 a = 10
 b = 20
 
@@ -150,6 +149,7 @@ print(a is c)  # 输出：False，虽然 a 和 c 的内容相同，但它们指�
 print(a == c)  # 输出：True，a 和 c 的内容相等
 
 #### 七、总结与注意事项
+
 # - **算术运算符** 用于基本的数学计算。
 # - **关系运算符** 用于比较数值，通常用于条件判断中。
 # - **逻辑运算符** 用于多条件判断，可以利用短路特性优化代码。
