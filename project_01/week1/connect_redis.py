@@ -27,7 +27,7 @@ r = redis.Redis()
 # 进行测试操作，比如获取当前数据库中键的数量
 count = r.dbsize()
 print(count)
- 
+
 # ===本地连接 Redis 数据库 ---异常处理 =============================================
 # import redis
 #
