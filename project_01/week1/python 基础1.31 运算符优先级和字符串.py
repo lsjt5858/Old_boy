@@ -38,13 +38,13 @@ print(x) 输出 8
 - 元组的定义： 例如 (1, 2, 3)。
 - 生成器表达式： 例如 (x**2 for x in range(10))。
 第三部分：字符串
-- 字符串定义：字符串是由字符组成的不可变序列。可以使用单引号 '、双引号 " 或三引号 ''' 或 """ 来定义字符串。
+- 字符串定义：字符串是由字符组成的不可变序列。可以使用单引号 '、双引号 " 或三引号 \''' 或 """ 来定义字符串。
 str1 = 'hello'
 str2 = "world"
-str3 = '''This is a
-multi-line string'''
-str4 = \"""This is another
-multi-line string\"""
+str3 = \'''This is a
+multi-line string\'''
+str4 = """This is another
+multi-line string"""
 - 转义字符：
 - 转义字符用于表示一些特殊的字符，例如换行符、制表符等。
   - \n：换行符。

@@ -65,5 +65,5 @@ count_func = counter()
 print(count_func())  # 输出 1
 print(count_func())  # 输出 2
 print(count_func())  # 输出 3
-print(count_func())  # 输出 3
-print(count_func())  # 输出 3
+print(count_func())  # 输出 4
+print(count_func())  # 输出 5
