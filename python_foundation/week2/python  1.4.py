@@ -29,14 +29,27 @@ def calculate():
     while True:
         try:
             num1 = int(input("请输入一个整数："))
-            operator = input("请输入运算符（+，——，*，/）: ")
+            operator = input("请输入运算符（+，-，*，/）: ")
             num2 = int(input("请输入另一个整数："))
-        if operator == "+":
-            result = num1 + num2
-        except ZeroDivisionError:
-        print("错误：除数不能为零！")
-    except ValueError:
-    print("错误：请输入有效的整数！")
-
-except Exception as e:
-print(f"发生未知错误：{e}")
+            if operator == "+":
+                result = num1 + num2
+                print(f"结果是: {result}")
+            elif operator == "-":
+                result = num1 - num2
+                print(f"结果是: {result}")
+            elif operator == "*":
+                result = num1 * num2
+                print(f"结果是: {result}")
+            elif operator == "/":
+                if num2 == 0:
+                    raise ZeroDivisionError("错误：除数不能为零！")
+                result = num1 / num2
+                print(f"结果是: {result}")
+            else:
+                print("错误：请输入有效的运算符！")
+        except ZeroDivisionError as e:
+            print(e)
+        except ValueError:
+            print("错误：请输入有效的整数！")
+        except Exception as e:
+            print(f"发生未知错误：{e}")

@@ -3,7 +3,7 @@
 # @Author: 熊🐻来个🥬
 # @Date:  2024/11/27
 # @Description: [对文件功能等的简要描述（可自行添加）]
-python 基础内容请移步到这里【https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxNzUxOTEzMQ==&action=getalbum&album_id=3759353417999859722#wechat_redirect】
+# python 基础内容请移步到这里【https://mp.weixin.qq.com/mp/appmsgalbum?__biz=MzAxNzUxOTEzMQ==&action=getalbum&album_id=3759353417999859722#wechat_redirect】
 # 第一大阶段： python基础到python高级
 #
 #     ATM + 购物车仙姑
