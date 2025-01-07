@@ -8,7 +8,7 @@
 # ### 一、基本概念
 # - **抽象接口**：Socket是一种抽象层，它为应用程序提供了一个统一的接口，使得应用程序无需关心底层网络的具体细节，如网络协议、数据包的封装与解析等，就能够进行网络通信。
 # - **通信端点**：可以将Socket看作是网络通信中的端点，就像电话通信中的电话机一样。在网络通信中，一个Socket通常与一个特定的IP地址和端口号相关联，通过这个Socket，进程可以发送和接收数据。
-#
+
 # ### 二、工作原理
 # 1. **创建Socket**：应用程序首先需要创建一个Socket对象，在创建Socket时，需要指定使用的网络协议（如TCP或UDP）。
 #    - **TCP Socket**：提供可靠的、面向连接的通信服务。在进行数据传输之前，需要先建立连接，确保数据的可靠传输，并且按照发送的顺序接收数据。
@@ -66,76 +66,175 @@
 # ================================================================
 # ================================================================
 # ================================================================
-import mysql.connector
-from mysql.connector import Error
+# import pymysql
+# from pymysql import Error
+#
+# class DatabaseManager:
+#     def __init__(self, host, user, password, database):
+#         self.connection = None
+#         try:
+#             self.connection = pymysql.connect(
+#                 host=host,
+#                 user=user,
+#                 password=password,
+#                 database=database,
+#                 charset='utf8mb4',
+#                 cursorclass=pymysql.cursors.DictCursor
+#             )
+#             print("数据库连接成功")
+#         except Error as e:
+#             print(f"连接错误: {e}")
+#
+#     def execute_query(self, query, params=None):
+#         """执行查询操作"""
+#         cursor = self.connection.cursor()
+#         try:
+#             cursor.execute(query, params or ())
+#             if query.lower().startswith('select'):
+#                 result = cursor.fetchall()
+#                 return result
+#             else:
+#                 self.connection.commit()
+#                 return cursor.rowcount
+#         except Error as e:
+#             print(f"执行查询错误: {e}")
+#             return None
+#         finally:
+#             cursor.close()
+#
+#     def create_table(self):
+#         """创建表示例"""
+#         create_table_query = '''
+#         CREATE TABLE IF NOT EXISTS users (
+#             id INT AUTO_INCREMENT PRIMARY KEY,
+#             name VARCHAR(255) NOT NULL,
+#             email VARCHAR(255) UNIQUE,
+#             created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+#         )
+#         '''
+#         self.execute_query(create_table_query)
+#
+#     def insert_user(self, name, email):
+#         """插入数据"""
+#         query = "INSERT INTO users (name, email) VALUES (%s, %s)"
+#         return self.execute_query(query, (name, email))
+#
+#     def update_user(self, user_id, new_name):
+#         """更新数据"""
+#         query = "UPDATE users SET name = %s WHERE id = %s"
+#         return self.execute_query(query, (new_name, user_id))
+#
+#     def delete_user(self, user_id):
+#         """删除数据"""
+#         query = "DELETE FROM users WHERE id = %s"
+#         return self.execute_query(query, (user_id,))
+#
+#     def select_all_users(self):
+#         """查询所有用户"""
+#         query = "SELECT * FROM users"
+#         return self.execute_query(query)
+#
+#     def close(self):
+#         """关闭数据库连接"""
+#         if self.connection:
+#             self.connection.close()
+#
+# if __name__ == "__main__":
+#     db_manager = DatabaseManager("localhost", "root", "Lx123456", "liuxiong")
+#     db_manager.create_table()
+#
+#     # ��入数据
+#     user_id = db_manager.insert_user("John Doe", "john.doe@example.com")
+#     print(f"Inserted user ID: {user_id}")
+#
+#     # 查询所有用户
+#     users = db_manager.select_all_users()
+#     for user in users:
+#         print(user)
+#
+#     # 更新数据
+#     db_manager.update_user(user_id, "Jane Doe")
+#
+#     # 查询所有用户
+#     updated_users = db_manager.select_all_users()
+#     for user in updated_users:
+#         print(user)
+#
+#     # 删除数据
+#     db_manager.delete_user(user_id)
+#
+#     # 查询所有用户
 
-class DatabaseManager:
-    def __init__(self, host, user, password, database):
-        self.connection = None
-        try:
-            self.connection = mysql.connector.connect(
-                host=host,
-                user=user,
-                password=password,
-                database=database
-            )
-            print("数据库连接成功")
-        except Error as e:
-            print(f"连接错误: {e}")
+# ================================================================
+# ================================================================
+# ================================================================
+# ================================================================
 
-    def execute_query(self, query, params=None):
-        """执行查询操作"""
-        cursor = self.connection.cursor()
+import yaml
+
+class YAMLHandler:
+    @staticmethod
+    def read_yaml(file_path):
+        """读取YAML文件"""
         try:
-            cursor.execute(query, params or ())
-            if query.lower().startswith('select'):
-                result = cursor.fetchall()
-                return result
-            else:
-                self.connection.commit()
-                return cursor.rowcount
-        except Error as e:
-            print(f"执行查询错误: {e}")
+            with open(file_path, 'r', encoding='utf-8') as file:
+                return yaml.safe_load(file)
+        except Exception as e:
+            print(f"读取YAML文件错误: {e}")
             return None
-        finally:
-            cursor.close()
 
-    def create_table(self):
-        """创建表示例"""
-        create_table_query = '''
-        CREATE TABLE IF NOT EXISTS users (
-            id INT AUTO_INCREMENT PRIMARY KEY,
-            name VARCHAR(255) NOT NULL,
-            email VARCHAR(255) UNIQUE,
-            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-        )
-        '''
-        self.execute_query(create_table_query)
+    @staticmethod
+    def write_yaml(file_path, data):
+        """写入YAML文件"""
+        try:
+            with open(file_path, 'w', encoding='utf-8') as file:
+                yaml.dump(data, file, default_flow_style=False, allow_unicode=True)
+            return True
+        except Exception as e:
+            print(f"写入YAML文件错误: {e}")
+            return False
 
-    def insert_user(self, name, email):
-        """插入数据"""
-        query = "INSERT INTO users (name, email) VALUES (%s, %s)"
-        return self.execute_query(query, (name, email))
+# YAML文件示例
+example_yaml = """
+# 服务器配置
+server:
+  host: localhost
+  port: 8080
+  debug: true
 
-    def update_user(self, user_id, new_name):
-        """更新数据"""
-        query = "UPDATE users SET name = %s WHERE id = %s"
-        return self.execute_query(query, (new_name, user_id))
+# 数据库配置
+database:
+  host: localhost
+  port: 3306
+  name: mydb
+  users:
+    - username: admin
+      password: admin123
+    - username: user
+      password: user123
 
-    def delete_user(self, user_id):
-        """删除数据"""
-        query = "DELETE FROM users WHERE id = %s"
-        return self.execute_query(query, (user_id,))
+# 日志配置
+logging:
+  level: INFO
+  file: app.log
+"""
 
-    def select_all_users(self):
-        """查询所有用户"""
-        query = "SELECT * FROM users"
-        return self.execute_query(query)
+# YAML使用示例
+def yaml_example():
+    # 写入示例YAML
+    with open('config.yaml', 'w') as f:
+        f.write(example_yaml)
 
-    def close(self):
-        """关闭数据库连接"""
-        if self.connection:
-            self.connection.close()
+    # 读取YAML
+    yaml_handler = YAMLHandler()
+    config = yaml_handler.read_yaml('config.yaml')
 
+    # 访问YAML数据
+    if config:
+        print(f"服务器端口: {config['server']['port']}")
+        print(f"数据库用户: {config['database']['users'][0]['username']}")
 
+        # 修改配置
+        config['server']['port'] = 9000
+        yaml_handler.write_yaml('config.yaml', config)
 

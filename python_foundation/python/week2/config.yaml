@@ -1,0 +1,9 @@
+person:
+  name: Bob
+  age: 25
+  contact:
+    email: bob@example.com
+    phone: "123-456-7890"
+  hobbies:
+    - Music
+    - Sports
