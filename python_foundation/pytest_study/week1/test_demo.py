@@ -35,7 +35,6 @@ import random
 #     assert 5 - 3 == 2
 # ============================================================================
 import pytest
-import pytest
 
 
 class TestDatabase:
