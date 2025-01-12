@@ -14,6 +14,9 @@
 # - 定义： 素数是只能被 1 和自身整除的正整数，例如 2、3、5、7、11 等。
 # - 判断素数：
 import math
+
+from python_foundation.python.week1.connect_redis import count
+
 '''
 def is_prime(num):if num <= 1:return False只需判断到平方根即可for i in range(2, int(math.sqrt(num)) + 1):if num % i == 0:return Falsereturn True测试
 print(is_prime(2))   True
