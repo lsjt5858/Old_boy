@@ -50,46 +50,6 @@
 # Inside function.
 # After calling function.
 
-# import time
-
-# def timing_decorator(func):
-#     """
-#     A decorator that measures and prints the execution time of the decorated function.
-#
-#     This decorator wraps the given function, executes it, and prints the time taken
-#     for execution. It does not modify the function's behavior or return value.
-#
-#     Parameters:
-#     func (callable): The function to be decorated and timed.
-#
-#     Returns:
-#     callable: A wrapper function that executes the decorated function and prints its execution time.
-#
-#     The wrapper function:
-#     - Accepts any positional and keyword arguments (*args, **kwargs).
-#     - Measures the start and end time of the function execution.
-#     - Prints the execution time.
-#     - Returns the original function's result.
-#     """
-#     def wrapper(*args, **kwargs):
-#         start_time = time.time()
-#         result = func(*args, **kwargs)
-#         end_time = time.time()
-#         print(f"{func.__name__} took {end_time - start_time:.4f} seconds to execute.")
-#         return result
-#     return wrapper
-#
-# @timing_decorator
-# def slow_function():
-#     time.sleep(2)
-#     print("Slow function finished execution.")
-
-# 使用装饰器
-# slow_function()
-
-# 输出示例：
-# Slow function finished execution.
-# slow_function took 2.0012 seconds to execute.
 # ========================尝试  自己 写一个  装饰器 ========================================
 
 
