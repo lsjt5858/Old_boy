@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python_study
 # -*- coding: utf-8 -*-
 # @Author: 熊🐻来个🥬
 # @Date:  2024/12/25
@@ -15,7 +15,7 @@
 # - 判断素数：
 import math
 
-from python_foundation.python.week1.connect_redis import count
+from python_foundation.python_study.week1.connect_redis import count
 
 '''
 def is_prime(num):if num <= 1:return False只需判断到平方根即可for i in range(2, int(math.sqrt(num)) + 1):if num % i == 0:return Falsereturn True测试

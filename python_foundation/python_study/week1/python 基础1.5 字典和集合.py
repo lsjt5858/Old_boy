@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python_study
 # -*- coding: utf-8 -*-
 # @Author: 熊🐻来个🥬
 # @Date:  2024/12/22

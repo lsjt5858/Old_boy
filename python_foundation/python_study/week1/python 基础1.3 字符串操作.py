@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python_study
 # -*- coding: utf-8 -*-
 # @Author: 熊🐻来个🥬
 # @Date:  2024/12/22
@@ -80,14 +80,14 @@ print(s.strip()) # 输出：hello world
 #     *   `string.rsplit(sep, maxsplit)`：从右侧开始分割。
 #     *   `string.partition(sep)`：从左侧找到第一个分隔符 `sep`，将字符串分割成一个包含三个元素的元组 `(分隔符左侧的字符串, 分隔符, 分隔符右侧的字符串)`。
 #     *   `string.rpartition(sep)`：从右侧开始分割。
-s = "hello,world,python"
-print(s.split(",")) # 输出：['hello', 'world', 'python']
+s = "hello,world,python_study"
+print(s.split(",")) # 输出：['hello', 'world', 'python_study']
 
 
 # *   **字符串连接类：**
 #     *   `string.join(iterable)`：使用字符串将可迭代对象（如列表、元组）中的元素连接成一个字符串。
-words = ["hello", "world", "python"]
-print(",".join(words)) # 输出：hello,world,python
+words = ["hello", "world", "python_study"]
+print(",".join(words)) # 输出：hello,world,python_study
 
 # *   **编码解码类：**
 #     *   `string.encode(encoding)`：使用指定的编码格式将字符串编码成字节串。
