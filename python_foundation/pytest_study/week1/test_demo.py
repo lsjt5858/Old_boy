@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python_study
 # -*- coding: utf-8 -*-
 # @Author: 熊🐻来个🥬
 # @Date:  2025/1/5
@@ -34,7 +34,6 @@ import random
 # def test_subtraction():
 #     assert 5 - 3 == 2
 # ============================================================================
-import pytest
 import pytest
 
 
