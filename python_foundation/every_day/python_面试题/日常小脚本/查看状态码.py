@@ -43,6 +43,3 @@ if __name__ == '__main__':
     password = '123'
     login_blog(username, password)
 
-
-
-

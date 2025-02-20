@@ -49,7 +49,7 @@ def writer_to_json(data, file_path):
             f.write(json.dumps(item, ensure_ascii=False) + '\n')
 
 if __name__ == '__main__':
-    num = 10
+    num = 100
     file_path = './create_json_data.json'
     for i in range(num):
         data = generate_data(num)
