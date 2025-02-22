@@ -10,8 +10,6 @@
 import pymysql
 import csv
 
-from python_foundation.every_day.pachong.wangyiyun import save_to_csv
-
 SQL_QUERIES = [
     # 查询语句
     "show  databases",
@@ -47,4 +45,3 @@ def execute_sql_and_save_csv(connect_mysql):
         cursor.close()
         connect_mysql.close()
 
-if __name__ == '__main__':
