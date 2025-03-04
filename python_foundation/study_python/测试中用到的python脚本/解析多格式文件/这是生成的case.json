@@ -1,0 +1,40 @@
+{
+  "test_cases": [
+    {
+      "method": "POST",
+      "url": "/login",
+      "test_cases": [
+        {
+          "type": "正向测试用例",
+          "code": "import requests\nimport pytest\n\ndef test_post_success():\n    # 测试目标: 验证API在正确参数下的成功响应\n    url = '/login'\n    headers = {'Content-Type': 'application/json'}\n    response = requests.post(url, headers=headers, json=data)\n\n    # 断言响应状态码为200\n    assert response.status_code == 200\n    # 断言响应包含预期字段\n    assert 'data' in response.json()\n    # 其他业务相关断言\n"
+        },
+        {
+          "type": "异常测试用例",
+          "code": "def test_post_invalid_parameter():\n    # 测试目标: 验证API在参数错误时的错误处理\n    url = '/login'\n    headers = {'Content-Type': 'application/json'}\n    data = {'invalid_field': 'invalid_value'}\n    response = requests.post(url, headers=headers, json=data)\n\n    # 断言响应状态码为400（参数错误）\n    assert response.status_code == 400\n    # 断言错误信息\n    assert 'error' in response.json()\n"
+        },
+        {
+          "type": "认证测试用例",
+          "code": "def test_post_unauthorized():\n    # 测试目标: 验证API在未授权时的错误处理\n    url = '/login'\n    # 不提供认证信息\n    headers = {'Content-Type': 'application/json'}\n    response = requests.post(url, headers=headers)\n\n    # 断言响应状态码为401（未授权）\n    assert response.status_code == 401\n    # 断言错误信息\n    assert 'error' in response.json()\n"
+        }
+      ]
+    },
+    {
+      "method": "GET",
+      "url": "/article/all",
+      "test_cases": [
+        {
+          "type": "正向测试用例",
+          "code": "import requests\nimport pytest\n\ndef test_get_success():\n    # 测试目标: 验证API在正确参数下的成功响应\n    url = '/article/all'\n    headers = {'Content-Type': 'application/json'}\n    response = requests.get(url, headers=headers, params=params)\n\n    # 断言响应状态码为200\n    assert response.status_code == 200\n    # 断言响应包含预期字段\n    assert 'data' in response.json()\n    # 其他业务相关断言\n"
+        },
+        {
+          "type": "异常测试用例",
+          "code": "def test_get_invalid_parameter():\n    # 测试目标: 验证API在参数错误时的错误处理\n    url = '/article/all'\n    headers = {'Content-Type': 'application/json'}\n    params = {'invalid_param': 'invalid_value'}\n    response = requests.get(url, headers=headers, params=params)\n\n    # 断言响应状态码为400（参数错误）\n    assert response.status_code == 400\n    # 断言错误信息\n    assert 'error' in response.json()\n"
+        },
+        {
+          "type": "认证测试用例",
+          "code": "def test_get_unauthorized():\n    # 测试目标: 验证API在未授权时的错误处理\n    url = '/article/all'\n    # 不提供认证信息\n    headers = {'Content-Type': 'application/json'}\n    response = requests.get(url, headers=headers)\n\n    # 断言响应状态码为401（未授权）\n    assert response.status_code == 401\n    # 断言错误信息\n    assert 'error' in response.json()\n"
+        }
+      ]
+    }
+  ]
+}
