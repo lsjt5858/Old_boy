@@ -1,0 +1,163 @@
+# 接口测试用例
+
+根据提示词: "为以下API生成完整的接口测试用例，包括正向测试和异常测试"
+
+## API 1: GET /users
+
+### 正向测试用例
+
+```python
+import requests
+import pytest
+
+def test_get_success():
+    # 测试目标: 验证API在正确参数下的成功响应
+    url = '/users'
+    headers = {'Content-Type': 'application/json'}
+    response = requests.get(url, headers=headers, params=params)
+
+    # 断言响应状态码为200
+    assert response.status_code == 200
+    # 断言响应包含预期字段
+    assert 'data' in response.json()
+    # 其他业务相关断言
+```
+
+### 异常测试用例
+
+```python
+def test_get_invalid_parameter():
+    # 测试目标: 验证API在参数错误时的错误处理
+    url = '/users'
+    headers = {'Content-Type': 'application/json'}
+    params = {'invalid_param': 'invalid_value'}
+    response = requests.get(url, headers=headers, params=params)
+
+    # 断言响应状态码为400（参数错误）
+    assert response.status_code == 400
+    # 断言错误信息
+    assert 'error' in response.json()
+```
+
+### 认证测试用例
+
+```python
+def test_get_unauthorized():
+    # 测试目标: 验证API在未授权时的错误处理
+    url = '/users'
+    # 不提供认证信息
+    headers = {'Content-Type': 'application/json'}
+    response = requests.get(url, headers=headers)
+
+    # 断言响应状态码为401（未授权）
+    assert response.status_code == 401
+    # 断言错误信息
+    assert 'error' in response.json()
+```
+
+## API 2: POST /users
+
+### 正向测试用例
+
+```python
+import requests
+import pytest
+
+def test_post_success():
+    # 测试目标: 验证API在正确参数下的成功响应
+    url = '/users'
+    headers = {'Content-Type': 'application/json'}
+    response = requests.post(url, headers=headers, json=data)
+
+    # 断言响应状态码为200
+    assert response.status_code == 200
+    # 断言响应包含预期字段
+    assert 'data' in response.json()
+    # 其他业务相关断言
+```
+
+### 异常测试用例
+
+```python
+def test_post_invalid_parameter():
+    # 测试目标: 验证API在参数错误时的错误处理
+    url = '/users'
+    headers = {'Content-Type': 'application/json'}
+    data = {'invalid_field': 'invalid_value'}
+    response = requests.post(url, headers=headers, json=data)
+
+    # 断言响应状态码为400（参数错误）
+    assert response.status_code == 400
+    # 断言错误信息
+    assert 'error' in response.json()
+```
+
+### 认证测试用例
+
+```python
+def test_post_unauthorized():
+    # 测试目标: 验证API在未授权时的错误处理
+    url = '/users'
+    # 不提供认证信息
+    headers = {'Content-Type': 'application/json'}
+    response = requests.post(url, headers=headers)
+
+    # 断言响应状态码为401（未授权）
+    assert response.status_code == 401
+    # 断言错误信息
+    assert 'error' in response.json()
+```
+
+## API 3: GET /users/{id}
+
+### 正向测试用例
+
+```python
+import requests
+import pytest
+
+def test_get_success():
+    # 测试目标: 验证API在正确参数下的成功响应
+    url = '/users/{id}'
+    headers = {'Content-Type': 'application/json'}
+    response = requests.get(url, headers=headers, params=params)
+
+    # 断言响应状态码为200
+    assert response.status_code == 200
+    # 断言响应包含预期字段
+    assert 'data' in response.json()
+    # 其他业务相关断言
+```
+
+### 异常测试用例
+
+```python
+def test_get_invalid_parameter():
+    # 测试目标: 验证API在参数错误时的错误处理
+    url = '/users/{id}'
+    headers = {'Content-Type': 'application/json'}
+    params = {'invalid_param': 'invalid_value'}
+    response = requests.get(url, headers=headers, params=params)
+
+    # 断言响应状态码为400（参数错误）
+    assert response.status_code == 400
+    # 断言错误信息
+    assert 'error' in response.json()
+```
+
+### 认证测试用例
+
+```python
+def test_get_unauthorized():
+    # 测试目标: 验证API在未授权时的错误处理
+    url = '/users/{id}'
+    # 不提供认证信息
+    headers = {'Content-Type': 'application/json'}
+    response = requests.get(url, headers=headers)
+
+    # 断言响应状态码为401（未授权）
+    assert response.status_code == 401
+    # 断言错误信息
+    assert 'error' in response.json()
+```
+

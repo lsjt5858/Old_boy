@@ -1,0 +1,141 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "API Documentation",
+    "version": "1.0.0"
+  },
+  "host": "localhost:8084",
+  "basePath": "/",
+  "schemes": ["http"],
+  "paths": {
+    "/login": {
+      "post": {
+        "summary": "用户登录",
+        "description": "获取访问令牌",
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "name": "credentials",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "username": {
+                  "type": "string",
+                  "example": "admin"
+                },
+                "password": {
+                  "type": "string",
+                  "format": "password",
+                  "example": "123456"
+                }
+              },
+              "required": ["username", "password"]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "登录成功",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string",
+                  "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.xxxxx"
+                },
+                "expiresIn": {
+                  "type": "integer",
+                  "example": 3600
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "认证失败"
+          }
+        }
+      }
+    },
+    "/article/all": {
+      "get": {
+        "summary": "获取文章列表",
+        "description": "支持分页和条件查询",
+        "parameters": [
+          {
+            "name": "state",
+            "in": "query",
+            "type": "integer",
+            "description": "文章状态（-1:全部, 0:草稿, 1:已发布）",
+            "default": -1
+          },
+          {
+            "name": "page",
+            "in": "query",
+            "type": "integer",
+            "description": "当前页码",
+            "default": 1
+          },
+          {
+            "name": "count",
+            "in": "query",
+            "type": "integer",
+            "description": "每页数量",
+            "default": 6
+          },
+          {
+            "name": "keywords",
+            "in": "query",
+            "type": "string",
+            "description": "搜索关键词",
+            "default": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "文章列表",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "total": {
+                  "type": "integer",
+                  "example": 100
+                },
+                "items": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "title": {
+                        "type": "string",
+                        "example": "示例文章"
+                      },
+                      "content": {
+                        "type": "string",
+                        "example": "文章内容..."
+                      },
+                      "state": {
+                        "type": "integer",
+                        "example": 1
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2023-09-20T12:00:00Z"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
